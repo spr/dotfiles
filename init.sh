@@ -6,6 +6,7 @@ cd ~
 
 echo "---Installing Homebrew…---"
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+brew doctor
 brew update
 echo "---Homebrew Installed---"
 
@@ -64,12 +65,12 @@ echo "---Git Configured---"
 
 echo "--Installing Gems…---"
 for gem in $(cat ~/.dotfiles/gemlist*); do
-    gem install "$gem"
+    sudo gem install "$gem"
 done
-rbenv install 1.9.3-p0
+rbenv install 1.9.3-p392
 rbenv rehash
 for gem in $(cat ~/.dotfiles/gemlist*); do
-    gem install "$gem"
+    sudo gem install "$gem"
 done
 rbenv rehash
 echo "Gem Installation Complete"
