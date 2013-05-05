@@ -5,6 +5,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Fix for vundle (Issue 239)
+set shell=bash
+
 " Setup Vundle
 filetype off
 set rtp +=~/.vim/bundle/vundle/
