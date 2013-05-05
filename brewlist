@@ -3,3 +3,5 @@ wget
 mercurial
 vim
 cmake
+rbenv
+ruby-build
