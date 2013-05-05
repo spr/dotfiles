@@ -18,18 +18,6 @@ echo "Brew Installation Complete"
 # Prep path for using Homebrew by default
 PATH=/usr/local/bin:$PATH
 
-echo "--Installing Gems…---"
-for gem in $(cat ~/.dotfiles/gemlist*); do
-    gem install "$gem"
-done
-rbenv install 1.9.3-p0
-rbenv rehash
-for gem in $(cat ~/.dotfiles/gemlist*); do
-    gem install "$gem"
-done
-rbenv rehash
-echo "Gem Installation Complete"
-
 echo "---Preparing ZSH…---"
 rm -rf ${DOTFILES}/local/oh-my-zsh .zshrc .oh-my-zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ${DOTFILES}/local/oh-my-zsh
@@ -73,6 +61,18 @@ open /tmp/ksdiff/*.pkg
 read -p ">>> Press enter to continue once install is complete"
 rm -rf /tmp/ksdiff*
 echo "---Git Configured---"
+
+echo "--Installing Gems…---"
+for gem in $(cat ~/.dotfiles/gemlist*); do
+    gem install "$gem"
+done
+rbenv install 1.9.3-p0
+rbenv rehash
+for gem in $(cat ~/.dotfiles/gemlist*); do
+    gem install "$gem"
+done
+rbenv rehash
+echo "Gem Installation Complete"
 
 echo "---Fetching the Latest MacVim…---"
 wget "http://macvim.googlecode.com/files/MacVim-snapshot-66.tbz" -O /tmp/macvim.tbz
