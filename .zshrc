@@ -54,7 +54,8 @@ bindkey -M viins "^[f" forward-word
 bindkey -M viins "^[b" backward-word
 
 # Saner Path
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:$PATH"
+eval "$(rbenv init -)"
 
 alias vi=vim
 export EDITOR=vim
