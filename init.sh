@@ -6,6 +6,7 @@ cd ~
 
 echo "---Installing Homebrew…---"
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+brew update
 echo "---Homebrew Installed---"
 
 echo "---Installing Brews…---"
@@ -26,8 +27,10 @@ echo "ZSH Setup Complete"
 
 echo "---Setting up Vim…---"
 ln -sf ${DOTFILES}/.vimrc .vimrc
+rm -rf .vim
 ln -sf ${DOTFILES}/.vim .vim
-git clone https://github.com/gmarik/vundle.git ${DOTFILES}/.vim/vundle
+git clone https://github.com/gmarik/vundle.git ${DOTFILES}/local/vundle
+ln -sf ${DOTFILES}/local/vundle .vim/vundle
 echo "> installing vundle bundles…"
 vim +BundleInstall +qall
 ${DOTFILES}/.vim/bundle/YouCompleteMe/install.sh --clang-completer

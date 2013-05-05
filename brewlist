@@ -1,4 +1,5 @@
 git
 wget
+mercurial
 vim
 cmake
