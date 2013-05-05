@@ -11,8 +11,8 @@ set rtp +=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-Bundle "scrooloose/syntastic"
-Bundle "tangledhelix/vim-octopress"
+Bundle "Syntastic"
+Bundle "vim-octopress"
 
 Bundle 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -25,7 +25,7 @@ let g:ycm_filetype_whitelist = {
       \ 'perl6': 1,
       \ 'ruby': 1,
       \ 'php': 1,
-}
+      \}
 
 " Don't use Ex mode, use Q for formatting
 map Q gq

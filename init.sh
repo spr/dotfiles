@@ -16,9 +16,10 @@ done
 echo "Brew Installation Complete"
 
 # Prep path for using Homebrew by default
-export PATH=/usr/local/bin:$PATH
+PATH=/usr/local/bin:$PATH
 
 echo "---Preparing ZSH…---"
+rm -rf ${DOTFILES}/local/oh-my-zsh .zshrc .oh-my-zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ${DOTFILES}/local/oh-my-zsh
 ln -sf ${DOTFILES}/spr.zsh-theme ${DOTFILES}/local/oh-my-zsh/themes/spr.zsh-theme
 ln -sf ${DOTFILES}/local/oh-my-zsh .oh-my-zsh
@@ -26,23 +27,27 @@ ln -sf ${DOTFILES}/.zshrc .zshrc
 echo "ZSH Setup Complete"
 
 echo "---Setting up Vim…---"
+rm -rf .vim .vimrc ${DOTFILES}/local/vundle
 ln -sf ${DOTFILES}/.vimrc .vimrc
-rm -rf .vim
 ln -sf ${DOTFILES}/.vim .vim
+mkdir -p ${DOTFILES}/.vim/bundle
 git clone https://github.com/gmarik/vundle.git ${DOTFILES}/local/vundle
-ln -sf ${DOTFILES}/local/vundle .vim/vundle
+ln -sf ${DOTFILES}/local/vundle .vim/bundle/vundle
 echo "> installing vundle bundles…"
 vim +BundleInstall +qall
-${DOTFILES}/.vim/bundle/YouCompleteMe/install.sh --clang-completer
+cd .vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+cd ~
 echo "---Vim Setup Complete---"
 
 echo "---Configuring Git…---"
+rm -rf .gitconfig .gitignore_global
 ln -sf ${DOTFILES}/.gitconfig .gitconfig
 ln -sf ${DOTFILES}/.gitignore_global .gitignore_global
 email=""
 while true; do
-    read -p ">>> Please enter your email address for the global git configuration:" email
-    read -p ">>> Is $email correct? (y/n)" yn
+    read -p ">>> Please enter your email address for the global git configuration: " email
+    read -p ">>> Is $email correct? (y/n) " yn
     case $yn in
         [Yy]* ) break;;
         * ) ;;
@@ -60,6 +65,8 @@ echo "---Git Configured---"
 echo "---Fetching the Latest MacVim…---"
 wget "http://macvim.googlecode.com/files/MacVim-snapshot-66.tbz" -O /tmp/macvim.tbz
 tar xjCf /tmp/ /tmp/macvim.tbz
+echo "> sudo required"
+sudo rm -rf /Applications/MacVim.app
 sudo cp -R /tmp/MacVim*/MacVim.app /Applications/
 cp /tmp/MacVim*/mvim /usr/local/bin/
 rm -rf /tmp/macvim.tbz
@@ -69,5 +76,3 @@ echo "---Latest MacVim Installed---"
 echo "---Configuring OS X…---"
 ${DOTFILES}/osx.sh
 echo "---OS X Configured (restart may be required)---"
-
-source .zshrc
