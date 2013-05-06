@@ -18,11 +18,13 @@ Bundle "Syntastic"
 Bundle "vim-octopress"
 
 Bundle 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_whitelist = {
       \ 'c': 1,
       \ 'cpp': 1,
       \ 'objc': 1,
+      \ 'objcpp': 1,
       \ 'python': 1,
       \ 'perl': 1,
       \ 'perl6': 1,

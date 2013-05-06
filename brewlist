@@ -5,3 +5,6 @@ vim
 cmake
 rbenv
 ruby-build
+markdown
+cscope
+ctags

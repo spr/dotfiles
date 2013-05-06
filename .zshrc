@@ -46,6 +46,7 @@ bindkey -M viins '' backward-delete-char
 bindkey -M viins '' backward-delete-char
 stty ek
 
+# OS X Editing Shortcuts (opt,cmd arrows)
 bindkey -M viins '^[[A' up-line-or-search
 bindkey -M viins '^[[B' down-line-or-search
 bindkey -M viins "^[[H" beginning-of-line
