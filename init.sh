@@ -67,7 +67,7 @@ echo "--Installing Gems…---"
 for gem in $(cat ~/.dotfiles/gemlist*); do
     sudo gem install "$gem"
 done
-rbenv install 1.9.3-p392
+rbenv install 1.9.3-p394
 rbenv rehash
 echo "Gem Installation Complete"
 
