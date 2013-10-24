@@ -61,3 +61,7 @@ eval "$(rbenv init -)"
 alias vi=vim
 export EDITOR=vim
 unset LS_COLORS
+
+setopt HIST_IGNORE_SPACE
+
+export TRANSPORTER_HOME=$(xcode-select --print-path)/../Applications/Application\ Loader.app/Contents/MacOS/itms/bin
