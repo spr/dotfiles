@@ -24,7 +24,7 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /Users/roscott/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [include]
 	path = ~/.dotfiles/.gitconfig.local
 
