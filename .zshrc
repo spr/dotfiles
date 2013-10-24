@@ -37,6 +37,9 @@ ZSH_THEME="spr"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+unsetopt correct_all
+
 # Vi keybindings
 # Tweaked for use
 bindkey -v

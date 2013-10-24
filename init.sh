@@ -4,6 +4,8 @@ DOTFILES=~/.dotfiles
 
 cd ~
 
+xcode-select --install
+
 echo "---Installing Homebrew…---"
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew doctor
@@ -67,7 +69,7 @@ echo "--Installing Gems…---"
 for gem in $(cat ~/.dotfiles/gemlist*); do
     sudo gem install "$gem"
 done
-rbenv install 1.9.3-p392
+rbenv install 1.9.3-p394
 rbenv rehash
 echo "Gem Installation Complete"
 
