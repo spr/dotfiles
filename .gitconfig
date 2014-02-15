@@ -27,5 +27,6 @@
 	excludesfile = ~/.gitignore_global
 [include]
 	path = ~/.dotfiles/.gitconfig.local
-
+[rerere]
+	enabled = true
 # vim: noet sw=8
