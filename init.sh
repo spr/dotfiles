@@ -6,17 +6,23 @@ cd ~
 
 xcode-select --install
 
+read -p "Press [Enter] to continue…"
+
 echo "---Installing Homebrew…---"
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew doctor
 brew update
 echo "---Homebrew Installed---"
+
+read -p "Press [Enter] to continue…"
 
 echo "---Installing Brews…---"
 for brew in $(cat ~/.dotfiles/brewlist*); do
     brew install "$brew"
 done
 echo "Brew Installation Complete"
+
+read -p "Press [Enter] to continue…"
 
 # Prep path for using Homebrew by default
 PATH=/usr/local/bin:$PATH
@@ -79,7 +85,6 @@ tar xjCf /tmp/ /tmp/macvim.tbz
 echo "> sudo required"
 sudo rm -rf /Applications/MacVim.app
 sudo cp -R /tmp/MacVim*/MacVim.app /Applications/
-cp /tmp/MacVim*/mvim /usr/local/bin/
 rm -rf /tmp/macvim.tbz
 rm -rf /tmp/MacVim*
 echo "---Latest MacVim Installed---"
